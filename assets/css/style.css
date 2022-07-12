@@ -194,17 +194,45 @@ body {
     border-top: solid 2px var(--dark-orange-glow);
     box-shadow: 0 0 10px 5px var(--dark-orange-glow);
     margin-top: 20px;
+    padding-bottom: 15px;
+}
+
+.github-link {
+    margin-bottom: 20px;
+}
+
+.fa-github {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neon-blue);
+}
+
+.username {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-family: niveau-grotesk, sans-serif;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.fa-github:hover,
+.username:hover {
+    color: var(--neon-orange);
+    cursor: pointer;
 }
 
 .footer-text {
     text-align: center;
     font-family: niveau-grotesk, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-style: italic;
     color: var(--text-color);
 }
 
 .footer-subtext {
     text-align: center;
-    margin-top: 5px;
+    margin-top: 15px;
 }

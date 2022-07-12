@@ -1,3 +1,4 @@
+//global variables
 let imgUrl;
 let posterUrl;
 let listContainer = $('.my-list-container');
@@ -7,7 +8,7 @@ var tableArr = []
 let searchQuery = $('#search-bar-input');
 
 let searchBtn = $('#search-button');
-
+//grabs search input to send to fetch function
 let searchToApi = function (e) {
     let searchTerm = searchQuery.val();
     if (searchTerm) {
@@ -16,16 +17,14 @@ let searchToApi = function (e) {
     }
 
 }
-
+//fetch function
 let getBookMovie = function (search) {
-    let booksUrl = 'http://openlibrary.org/search.json?q=' + search + '&limit=2&language:eng'
+    let booksUrl = 'https://openlibrary.org/search.json?q=' + search + '&limit=2&language:eng'
     let movieUrl = 'https://api.themoviedb.org/3/search/movie?api_key=6e44bae1ae373999e2237689e35e2f46&language=en-US&query=' + search + '&page=1&include_adult=false'
     fetch(booksUrl)
         .then(function (response) {
             if (response.ok) {
-                console.log(response);
                 response.json().then(function (data) {
-                    console.log(data);
                     displayCover(data);
                 })
             }
@@ -33,25 +32,23 @@ let getBookMovie = function (search) {
     fetch(movieUrl)
         .then(function (response) {
             if (response.ok) {
-                console.log(response);
                 response.json().then(function (data) {
-                    console.log(data);
                     displayPoster(data);
                 })
             }
         })
-}
-
+};
+//book parsing function
 let displayCover = function (image) {
     imgUrl = 'https://covers.openlibrary.org/b/id/' + image.docs[0].cover_i + '-M.jpg';
     let bookTitle = image.docs[0].title;
     let bookPub = image.docs[0].first_publish_year;
     localStorage.setItem('bookTitle', bookTitle);
-    localStorage.setItem('bookPub', bookPub)
+    localStorage.setItem('bookPub', bookPub);
+    //calls appending function
     createDisplay();
-
-}
-
+};
+//movie parsing function
 let displayPoster = function (poster) {
     posterUrl = "https://image.tmdb.org/t/p/w185" + poster.results[0].poster_path
     movieTitle = poster.results[0].title;
@@ -59,9 +56,8 @@ let displayPoster = function (poster) {
     localStorage.setItem('movieTitle', movieTitle);
     localStorage.setItem('movieRelease', movieRelease);
 }
-
+//appending function
 let createDisplay = function () {
-
     // parent to ammend to section
     let columns = document.createElement('div');
     columns.setAttribute('class', 'columns my-list-rows');
@@ -82,7 +78,7 @@ let createDisplay = function () {
 
     //thumbs up icon
     let thumbsUpBook = document.createElement('i');
-    thumbsUpBook.setAttribute('class', 'fas fa-thumbs-up');
+    thumbsUpBook.setAttribute('class', 'fas fa-thumbs-up fa-lg');
 
     //book thumbs-down
     let bookDown = document.createElement('button');
@@ -92,7 +88,7 @@ let createDisplay = function () {
 
     //thumbs down icon
     let thumbsDownBook = document.createElement('i');
-    thumbsDownBook.setAttribute('class', 'fas fa-thumbs-down');
+    thumbsDownBook.setAttribute('class', 'fas fa-thumbs-down fa-lg');
 
     //book cover
     let bookCover = document.createElement('img');
@@ -141,7 +137,7 @@ let createDisplay = function () {
 
     //thumbs up icon
     let thumbsUpMovie = document.createElement('i');
-    thumbsUpMovie.setAttribute('class', 'fas fa-thumbs-up');
+    thumbsUpMovie.setAttribute('class', 'fas fa-thumbs-up fa-lg');
 
     //Movie thumbs-down
     let movieDown = document.createElement('button');
@@ -150,7 +146,7 @@ let createDisplay = function () {
 
     //                 //thumbs down icon
     let thumbsDownMovie = document.createElement('i');
-    thumbsDownMovie.setAttribute('class', 'fas fa-thumbs-down');
+    thumbsDownMovie.setAttribute('class', 'fas fa-thumbs-down fa-lg');
     thumbsDownMovie.setAttribute('alt', 'Thumbs down button icon.')
 
     //book cover
@@ -176,8 +172,8 @@ let createDisplay = function () {
 
     columns.append(book, vsIcon, movie);
     listContainer.append(columns);
-
-    var tableData = {
+    //object for search data
+    let tableData = {
         thumbsUpBk: '',
         thumbsUpMv: '',
         thumbsDownBk: '',
@@ -190,58 +186,54 @@ let createDisplay = function () {
         movieTitle: localStorage.getItem('movieTitle'),
         release: localStorage.getItem('movieRelease')
     }
+    //styles thumbs buttons and sets value to search object
     $('.thumbs-up').click(function (clicks) {
-        this.setAttribute('style', 'background-color: green');
+        this.setAttribute('style', 'background-color: #00ff00');
         $(this).siblings('.thumbs-down').removeAttr('style');
         if (this === bookUp) {
             tableData.thumbsUpBk = true;
             tableData.thumbsDownBk = false;
-            console.log(tableData)
         } else if (this === movieUp) {
             tableData.thumbsUpMv = true;
             tableData.thumbsDownMv = false;
-            console.log(tableData);
-        }
+        };
+        //calls rating check function
         arrCheck(clicks);
     });
     $('.thumbs-down').click(function (clicks) {
-        this.setAttribute('style', 'background-color: red');
+        this.setAttribute('style', 'background-color: #ff1e1e');
         $(this).siblings('.thumbs-up').removeAttr('style');
         if (this === bookDown) {
             tableData.thumbsDownBk = true;
             tableData.thumbsUpBk = false;
-            console.log(tableData);
         } else if (this === movieDown) {
             tableData.thumbsDownMv = true;
             tableData.thumbsUpMv = false;
-            console.log(tableData)
         }
+        //calls rating check function
         arrCheck(clicks);
     });
+    //function that checks that book and movie are rated before pushing object to array that is then sent to local storage
     let arrCheck = function () {
         if ((tableData.thumbsUpMv === (true || false)) && (tableData.thumbsUpMv === (true || false))) {
             tableArr.push(tableData);
-            console.log(tableArr);
-            localStorage.setItem('search', JSON.stringify(tableArr))
-            console.log(localStorage.getItem('search'));
+            localStorage.setItem('search', JSON.stringify(tableArr));
         }
     }
-}
-
-
+};
+//initialization function pulls search data out of storage and sets in in an array. For future update - will display search history on reload
 let init = function () {
     let loadArr = []
     loadArr = JSON.parse(localStorage.getItem('search'))
-    console.log(loadArr)
-}
+};
 
-init()
-
+init();
+//makes sure hitting enter will send search term to first function
 document.addEventListener('keydown', (event) => {
     const e = event || window.event;
     if (e.keyCode === 13) {
         searchToApi()
     }
-})
-
+});
+//search to first function by clicking search button
 searchBtn.click(searchToApi)
