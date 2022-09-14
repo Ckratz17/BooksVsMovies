@@ -7,9 +7,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Home from './pages/Home'
+import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
-import SavedMovies from './pages/SavedMovies'
 import Navbar from './components/Navbar';
 
 const httpLink = createHttpLink({
@@ -31,16 +30,15 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export default function App () {
+function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
           <Navbar />
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/saved/books' component={SavedBooks} />
-              <Route exact path={'/saved/movies'} component={SavedMovies}/>
+              <Route exact path='/' component={SearchBooks} />
+              <Route exact path='/saved' component={SavedBooks} />
               <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
             </Switch>
         </>
@@ -48,3 +46,5 @@ export default function App () {
     </ApolloProvider>
   );
 }
+
+export default App;

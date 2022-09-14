@@ -19,7 +19,6 @@ const userSchema = new Schema({
       required: true,
     },
     savedBooks: [bookSchema],
-    savedMovies: [movieSchema],
   },
   {
     toJSON: {
