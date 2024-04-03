@@ -1,0 +1,15 @@
+<div class="container">
+    {{#if logged_in}}
+    <h1 class="home-header">Hello {{name}}</h1>
+    {{else}}
+    <h1 class="text-center"><a class="home-links" href="/login">Login</a> or <a class="home-links" href="/signup">sign up</a> today!</h1>
+    {{/if}}
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-input" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+    </form>
+</div>
+
+<script src="/js/bookapi.js"></script>
+<script src="/js/movieapi.js"></script>

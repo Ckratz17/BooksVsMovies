@@ -1,0 +1,200 @@
+*
+ {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+/* STYLES FOR BODY INCLUDING BACKGROUND COLOR */
+body 
+{
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: linear-gradient(#000, #0f0, #000);
+} 
+
+/* STYLES FOR THE LOGIN AND SIGNUP FORMS */
+section 
+{
+  position: absolute;
+  width: 85vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+section::before 
+{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+section .signin
+{
+  position: absolute;
+  width: 400px;
+  background: #222;  
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+section .signin .content 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+section .signin .content h2 
+{
+  font-size: 2em;
+  color: #0f0;
+  text-transform: uppercase;
+}
+section .signin .content .form 
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+section .signin .content .form .inputBox
+{
+  position: relative;
+  width: 100%;
+}
+section .signin .content .form .inputBox input 
+{
+  position: relative;
+  width: 100%;
+  background: #333;
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1em;
+}
+section .signin .content .form .inputBox i 
+{
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: #aaa;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.signin .content .form .inputBox input:focus ~ i,
+.signin .content .form .inputBox input:valid ~ i
+{
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: #fff;
+}
+.signin .content .form .links 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.signin .content .form .links a 
+{
+  color: #fff;
+  text-decoration: none;
+}
+.signin .content .form .links a:nth-child(2)
+{
+  color: #0f0;
+  font-weight: 600;
+}
+.signin .content .form .inputBox input[type="submit"]
+{
+  padding: 10px;
+  background: #0f0;
+  color: #000;
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+input[type="submit"]:active
+{
+  opacity: 0.6;
+}
+
+/* ------------------------------------ */
+/* HEADER STYLES FOR THE MAIN HANDLEBAR LAYOUT */
+.main-header {
+  background: linear-gradient(180deg, black, transparent);
+}
+
+.main-title {
+  color: rgba(49, 238, 49, 0.674);
+  font-size: 100px;
+  box-shadow: 7px 8px 15px 2px #91ee91;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.main-links {
+  padding: 0px 25px;
+  color: rgba(49, 238, 49, 0.674);
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.main-links:hover, .main-title:hover {
+  color: rgb(6, 98, 6) !important;
+  cursor: pointer;
+}
+
+.logout-btn {
+  border: none;
+}
+
+
+/* ----------------------------------------- */
+/* HOME PAGE STYLING */
+.home-links {
+  text-decoration: none;
+  color: rgba(49, 238, 49, 0.674);
+}
+
+.home-header {
+  text-align: center;
+  
+}
+
+/* ------------------------------------------*/
+/* MEDIA QUERIES FOR LOGIN AND SIGN UP FORMS */
+@media (max-width: 900px)
+{
+  section span 
+  {
+    width: calc(10vw - 2px);
+    height: calc(10vw - 2px);
+  }
+}
+@media (max-width: 600px)
+{
+  section span 
+  {
+    width: calc(20vw - 2px);
+    height: calc(20vw - 2px);
+  }
+}
+
