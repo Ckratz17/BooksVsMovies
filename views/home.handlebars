@@ -6,9 +6,26 @@
     {{/if}}
 
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" id="search-input" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" id="search-input" placeholder="Search for a book or movie!" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
     </form>
+
+    <div class="row display-none" id="content-row">
+        <div class="col-4 card book-card">
+          <img class="book-img" src="" alt="">
+          <h3 class="book-title"></h3>
+          <h4 class="author"></h4>
+          <p class="book-description"></p>
+        </div>
+        <div class="col-4 logo-col">
+          <img class="vs-logo" src="/images/8945183.jpg" alt="">
+        </div>
+        <div class="col-4 card">
+          <img class="movie-poster" src="" alt="">
+          <h3 class="movie-title"></h3>
+          <p class="movie-description"></p>
+        </div>
+    </div>
 </div>
 
 <script src="/js/bookapi.js"></script>

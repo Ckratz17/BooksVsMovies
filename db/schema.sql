@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS user_db;
+DROP DATABASE IF EXISTS booksvsmovies_db;
 
-CREATE DATABASE user_db;
+CREATE DATABASE booksvsmovies_db;

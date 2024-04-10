@@ -179,6 +179,21 @@ input[type="submit"]:active
   
 }
 
+.vs-logo {
+  height: 500px;
+}
+
+.logo-col {
+  align-self: center;
+}
+
+.description {
+  overflow-y: auto
+}
+
+.display-none{
+  display: none !important;
+}
 /* ------------------------------------------*/
 /* MEDIA QUERIES FOR LOGIN AND SIGN UP FORMS */
 @media (max-width: 900px)

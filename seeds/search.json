@@ -1,0 +1,47 @@
+[
+    {
+        "book": {
+           "title": "Harry Potter and the Sorcerer's Stone",
+           "author": "J.K Rowling",
+           "releaseDate": 2001,
+           "description": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard—with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths—and about the villain who's to blame."
+        },
+        "movie": {
+            "title": "Harry Potter and the Sorcerer's Stone",
+            "director": "J.K Rowling",
+            "releaseDate": 2001,
+            "description": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard—with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths—and about the villain who's to blame."
+        },
+        "user_id": 1
+    },
+    {
+        "book": {
+            "title": "It",
+            "author": "Stephen King",
+            "releaseDate": 2016,
+            "description": "In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise."
+         },
+         "movie": {
+             "title": "It",
+             "director": "Stephen King",
+             "releaseDate": 2017,
+             "description": "In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise."
+         },
+         "user_id": 1
+    },
+    {
+        "book": {
+            "title": "Jurassic Park",
+            "author": "Michael Crichton",
+            "releaseDate": 2012,
+            "description": "#1 NEW YORK TIMES BESTSELLER • From the author of Timeline, Sphere, and Congo, this is the classic thriller of science run amok that took the world by storm. Nominated as one of America’s best-loved novels by PBS’s The Great American Read “[Michael] Crichton’s dinosaurs are genuinely frightening.”—Chicago Sun-Times An astonishing technique for recovering and cloning dinosaur DNA has been discovered. Now humankind’s most thrilling fantasies have come true. Creatures extinct for eons roam Jurassic Park with their awesome presence and profound mystery, and all the world can visit them—for a price. Until something goes wrong. . . . In Jurassic Park, Michael Crichton taps all his mesmerizing talent and scientific brilliance to create his most electrifying technothriller. Praise for Jurassic Park “Wonderful . . . powerful.”—The Washington Post Book World “Frighteningly real . . . compelling . . . It’ll keep you riveted.”—The Detroit News “Full of suspense.”—The New York Times Book Review"
+         },
+         "movie": {
+             "title": "Jurassic Park",
+             "director": "Stephen Spielburg",
+             "releaseDate": 1995,
+             "description": "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA. Before opening day, he invites a team of experts and his two eager grandchildren to experience the park and help calm anxious investors. However, the park is anything but amusing as the security systems go off-line and the dinosaurs escape."
+         },
+         "user_id": 1
+    }
+]
